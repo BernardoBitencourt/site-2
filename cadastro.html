@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Login - Hebraico Fácil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Hebraico Fácil 🇮🇱</div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sala.html">Sala de Aula</a>
+        <a href="cadastro.html">Cadastro/Login</a>
+        <a href="perfil.html">Perfil</a>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="grid">
+        <form id="cadastroForm">
+            <h2>Criar conta</h2>
+            <label>Nome</label>
+            <input id="nome" required>
+            <label>E-mail</label>
+            <input id="email" type="email" required>
+            <label>Senha</label>
+            <input id="senha" type="password" required>
+            <button class="botao" type="submit">Cadastrar</button>
+            <p id="mensagem"></p>
+        </form>
+
+        <form id="loginForm">
+            <h2>Entrar</h2>
+            <label>E-mail</label>
+            <input id="loginEmail" type="email" required>
+            <label>Senha</label>
+            <input id="loginSenha" type="password" required>
+            <button class="botao" type="submit">Entrar</button>
+            <p id="loginMensagem"></p>
+        </form>
+    </div>
+</main>
+
+<script>
+// Salva os dados apenas neste navegador.
+document.getElementById("cadastroForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    localStorage.setItem("usuario", JSON.stringify({
+        nome: document.getElementById("nome").value,
+        email: document.getElementById("email").value
+    }));
+    document.getElementById("mensagem").textContent = "Cadastro realizado!";
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const email = document.getElementById("loginEmail").value;
+
+    if (usuario && usuario.email === email) {
+        localStorage.setItem("logado", "true");
+        document.getElementById("loginMensagem").textContent = "Login realizado!";
+    } else {
+        document.getElementById("loginMensagem").textContent = "Cadastre-se primeiro.";
+    }
+});
+</script>
+</body>
+</html>

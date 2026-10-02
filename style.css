@@ -1,0 +1,146 @@
+
+/* Cores principais do site */
+:root {
+    --azul: #87ceeb;
+    --azul-escuro: #2b6f8a;
+    --azul-claro: #eaf8fd;
+    --branco: #ffffff;
+    --texto: #18323d;
+    --borda: #c8e7f2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--azul-claro);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--branco);
+    border-bottom: 3px solid var(--azul);
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--azul-escuro);
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--azul-escuro);
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: var(--azul-claro);
+}
+
+.container {
+    width: min(1000px, 92%);
+    margin: 40px auto;
+}
+
+.hero, .card, form, .profile {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 20px rgba(43, 111, 138, 0.08);
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 25px;
+}
+
+h1, h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: 38px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 9px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao:hover {
+    opacity: 0.9;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.letra {
+    font-size: 42px;
+    color: var(--azul-escuro);
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 15px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--azul-escuro);
+}
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
